@@ -15,7 +15,7 @@ library(ggplot2)
 ### intial setup: ====================================
 
 # going to use the Inconsolata font, available for download here:
-# https://fonts.google.com/specimen/Inconsolata
+# https://fontlibrary.org/en/font/inconsolata
 font_name <- "Inconsolata"
 
 # set up theme skeleton with apporpriate font, correct background color,
@@ -60,8 +60,9 @@ marital$pct <- c(
   0, 1, 33, 68, 79, 85, 85, 85, 76
 )
 
-marital$status <- factor(marital$status,
-                         levels = c("widowed", "married", "single")
+marital$status <- factor(
+  marital$status,
+  levels = c("widowed", "married", "single")
 )
 # want the age groups to be numeric so that i can use scale_x_continuous to
 # duplicate this axis
@@ -109,7 +110,8 @@ ppmsca_33915 <- ggplot(
   theme_du_bois()
 
 # annotations for plot
-ppmsca_33915 + annotate("text",
+ppmsca_33915 + annotate(
+  "text",
   label = rep(c("SINGLE", "MARRIED", "WIDOWED"), each = 2
   ),
   # angle text for marital status
@@ -120,7 +122,8 @@ ppmsca_33915 + annotate("text",
   family = font_name,
   fontface = "bold"
 ) +
-  annotate("text",
+  annotate(
+    "text",
     label = c("MALES.", "FEMALES."),
     y = c(-50, 50),
     x = Inf, # is this a thing? will it just put it outside the panel with

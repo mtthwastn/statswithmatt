@@ -12,6 +12,7 @@ available [here](https://www.loc.gov/pictures/search/?st=grid&co=anedub).
 
 I used the Inconsolata font for all text in my plots. R will probably yell at
 you and/or do something weird if you run my code and don't have it, so you can
-either freely download Inconsolata [here](https://fonts.google.com/specimen/Inconsolata),
-or choose a different font, or omit my choice of `font_name` altogether
+either freely download Inconsolata
+[here](https://fontlibrary.org/en/font/inconsolata), or choose a different
+font, or omit my choice of `font_name` altogether
 wherever it's specified.

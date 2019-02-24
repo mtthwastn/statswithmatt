@@ -15,7 +15,7 @@ library(ggplot2)
 ### intial setup: ====================================
 
 # going to use the Inconsolata font, available for download here:
-# https://fonts.google.com/specimen/Inconsolata
+# https://fontlibrary.org/en/font/inconsolata
 font_name <- "Inconsolata"
 
 # set up theme skeleton with apporpriate font, correct background color,
@@ -79,15 +79,17 @@ ppmsca_33913 <- ggplot(
   theme_du_bois()
 
 # annotations for plot
-ppmsca_33913 + geom_text(aes(
-  y = labels,
-  label = paste0(100 * pct_free, "%"),
-  family = font_name,
-  fontface = "bold"
-),
-nudge_y = 0.02
+ppmsca_33913 + geom_text(
+  aes(
+    y = labels,
+    label = paste0(100 * pct_free, "%"),
+    family = font_name,
+    fontface = "bold"
+  ),
+  nudge_y = 0.02
 ) +
-  annotate("text",
+  annotate(
+    "text",
     label = c("SLAVES\nESCLAVES", "FREE - LIBRE"),
     color = c("antiquewhite", "black"),
     size = c(9, 6),

@@ -15,7 +15,7 @@ library(ggplot2)
 ### intial setup: ====================================
 
 # going to use the Inconsolata font, available for download here:
-# https://fonts.google.com/specimen/Inconsolata
+# https://fontlibrary.org/en/font/inconsolata
 font_name <- "Inconsolata"
 
 # set up theme skeleton with apporpriate font, correct background color,
@@ -51,8 +51,9 @@ occup <- data.frame(
   pct = c(62, 28, 5, 4.5, 0.5, 50, 64, 5.5, 13.5, 13, 4, 50)
 )
 # set factor levels in order of appearance on graph from [0, pi]
-occup$job <- factor(occup$job,
-                    levels = c("NA", "prof", "trade", "manu", "serv", "ag")
+occup$job <- factor(
+  occup$job,
+  levels = c("NA", "prof", "trade", "manu", "serv", "ag")
 )
 # labeling
 pct_labels <- paste0(occup$pct, "%")
@@ -83,19 +84,21 @@ ppmsca_08993 <- ggplot(
     y = NULL
   ) +
   scale_fill_manual(
-    values = rep(c(
-      "NA", "tan", "cornsilk2", "royalblue", "gold",
-      "firebrick3"
-    ), times = 2),
+    values = rep(
+      c("NA", "tan", "cornsilk2", "royalblue", "gold", "firebrick3"),
+      times = 2
+    ),
     # only need to specify one set of occupations so it'll use the
     # corresponding color for both halves. but wait, why did i put them in this
     # order (other than "because it works")? i don't know. pie charts are dumb
     # and i'm glad hadley says so in the coord_polar() documentation
     breaks = paste0(
-      "black:", c("prof", "trade", "serv", "manu", "ag")
+      "black:",
+      c("prof", "trade", "serv", "manu", "ag")
     ),
     labels = c(
-      "PROFESSIONS.", "TRADE AND\nTRANSPORTATION.",
+      "PROFESSIONS.",
+      "TRADE AND\nTRANSPORTATION.",
       "DOMESTIC AND\nPERSONAL SERVICE.",
       "MANUFACTURING AND\nMECHANICAL INDUSTRIES.",
       "AGRICULTURE, FISHERIES\nAND MINING."
@@ -111,18 +114,20 @@ ppmsca_08993 <- ggplot(
   theme_du_bois()
 
 # annotations for plot
-ppmsca_08993 + geom_text(aes(
+ppmsca_08993 + geom_text(
+  aes(
   # need position_stack to center labels in each slice, but can't use position
   # and nudge_* together. would it work to just try different x values until i
   # find the one resulting in text at the top of each slice?
-  x = 1.4,
-  label = pct_labels,
-  family = font_name
-),
-position = position_stack(vjust = 0.5),
-size = 2.5
+    x = 1.4,
+    label = pct_labels,
+    family = font_name
+  ),
+  position = position_stack(vjust = 0.5),
+  size = 2.5
 ) +
-  annotate("text",
+  annotate(
+    "text",
     label = c("NEGROES.", "WHITES."),
     x = 1.55,
     y = c(203, 50),

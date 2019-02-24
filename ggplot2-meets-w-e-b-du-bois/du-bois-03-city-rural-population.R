@@ -15,7 +15,7 @@ library(ggplot2)
 ### intial setup: ====================================
 
 # going to use the Inconsolata font, available for download here:
-# https://fonts.google.com/specimen/Inconsolata
+# https://fontlibrary.org/en/font/inconsolata
 font_name <- "Inconsolata"
 
 # set up theme skeleton with apporpriate font, correct background color,
@@ -56,16 +56,17 @@ ppmsca_33914 <- ggplot(
   )
 ) +
   geom_bar(stat = "identity") +
-  geom_text(aes(
-    label = paste0(pct, "%"),
-    family = font_name,
-    fontface = "bold"
-  ),
-  position = position_stack(vjust = 0.5),
-  color = rep(c("black", "antiquewhite"), times = 4
-  ),
-  # need the 4.2% smaller to fit within the area
-  size = c(5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 3, 5.5)
+  geom_text(
+    aes(
+      label = paste0(pct, "%"),
+      family = font_name,
+      fontface = "bold"
+    ),
+    position = position_stack(vjust = 0.5),
+    color = rep(c("black", "antiquewhite"), times = 4
+    ),
+    # need the 4.2% smaller to fit within the area
+    size = c(5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 3, 5.5)
   ) +
   coord_flip() +
   # to get the French title correctly, i can left-justify the entire title and
