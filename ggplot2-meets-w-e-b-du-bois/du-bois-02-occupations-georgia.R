@@ -84,24 +84,24 @@ ppmsca_08993 <- ggplot(
   ) +
   scale_fill_manual(
     values = rep(
+      # in order of the levels of job that i set earlier
       c("NA", "tan", "cornsilk2", "royalblue", "gold", "firebrick3"),
       times = 2
     ),
-    # only need to specify one set of occupations so it'll use the
-    # corresponding color for both halves. but wait, why did i put them in this
-    # order (other than "because it works")? i don't know. pie charts are dumb
-    # and i'm glad hadley says so in the coord_polar() documentation
+    # set legend breaks and labels
+    # only need to specify the race:job combinations for one race so it'll
+    # use the corresponding color for both halves
     breaks = paste0(
       "black:",
-      c("trade", "prof", "serv", "NA", "manu", "ag")
+      c("ag", "manu", "NA", "serv", "prof", "trade")
     ),
     labels = c(
-      "TRADE AND\nTRANSPORTATION.",
-      "PROFESSIONS.",
-      "DOMESTIC AND\nPERSONAL SERVICE.",
-      "",
+      "AGRICULTURE, FISHERIES\nAND MINING.",
       "MANUFACTURING AND\nMECHANICAL INDUSTRIES.",
-      "AGRICULTURE, FISHERIES\nAND MINING."
+      "",
+      "DOMESTIC AND\nPERSONAL SERVICE.",
+      "PROFESSIONS.",
+      "TRADE AND\nTRANSPORTATION."
     ),
     guide = guide_legend(
       title = NULL,
@@ -109,7 +109,6 @@ ppmsca_08993 <- ggplot(
       ncol = 2,
       keywidth = 0.7,
       keyheight = 0.7,
-      reverse = TRUE
     )
   ) +
   theme_du_bois()
