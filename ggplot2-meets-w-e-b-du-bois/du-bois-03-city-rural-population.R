@@ -9,7 +9,6 @@
 ### https://www.loc.gov/pictures/collection/anedub/dubois.html
 #################################
 
-library(dplyr)
 library(ggplot2)
 
 ### intial setup: ====================================

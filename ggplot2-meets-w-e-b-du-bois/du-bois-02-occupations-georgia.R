@@ -9,7 +9,6 @@
 ### https://www.loc.gov/pictures/collection/anedub/dubois.html
 #################################
 
-library(dplyr)
 library(ggplot2)
 
 ### intial setup: ====================================
@@ -155,3 +154,4 @@ ppmsca_08993 + geom_text(
     # remove white background from legend keys
     legend.key = element_blank()
   )
+
