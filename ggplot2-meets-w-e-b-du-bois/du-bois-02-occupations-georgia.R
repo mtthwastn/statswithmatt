@@ -94,12 +94,13 @@ ppmsca_08993 <- ggplot(
     # and i'm glad hadley says so in the coord_polar() documentation
     breaks = paste0(
       "black:",
-      c("prof", "trade", "serv", "manu", "ag")
+      c("trade", "prof", "serv", "NA", "manu", "ag")
     ),
     labels = c(
-      "PROFESSIONS.",
       "TRADE AND\nTRANSPORTATION.",
+      "PROFESSIONS.",
       "DOMESTIC AND\nPERSONAL SERVICE.",
+      "",
       "MANUFACTURING AND\nMECHANICAL INDUSTRIES.",
       "AGRICULTURE, FISHERIES\nAND MINING."
     ),
@@ -108,7 +109,8 @@ ppmsca_08993 <- ggplot(
       nrow = 3,
       ncol = 2,
       keywidth = 0.7,
-      keyheight = 0.7
+      keyheight = 0.7,
+      reverse = TRUE
     )
   ) +
   theme_du_bois()
@@ -146,7 +148,7 @@ ppmsca_08993 + geom_text(
     legend.text = element_text(
       size = 6,
       # add more spacing between legend columns
-      margin = margin(r = 60, unit = "pt")
+      margin = margin(r = 70, unit = "pt")
     ),
     # move legend to the middle of plot
     legend.position = c(0.6, 0.5),
