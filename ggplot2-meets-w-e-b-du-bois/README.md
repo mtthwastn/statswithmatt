@@ -1,4 +1,4 @@
-Code to reproduce the images from [ggplot2 meets W. E. B. Du Bois](https://statswithmatt.com/post/ggplot2-meets-w-e-b-du-bois/). The
+Code to reproduce the images from [ggplot2 meets W. E. B. Du Bois](https://www.statswithmatt.com/post/ggplot2-meets-w-e-b-du-bois/). The
 original images can be seen at the Library of Congress, and my corresponding
 scrips are named accordingly:
 
