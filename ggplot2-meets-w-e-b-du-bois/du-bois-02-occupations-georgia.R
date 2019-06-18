@@ -11,7 +11,7 @@
 
 library(ggplot2)
 
-### intial setup: ====================================
+### initial setup: ====================================
 
 # going to use the Inconsolata font, available for download here:
 # https://fontlibrary.org/en/font/inconsolata
@@ -45,19 +45,25 @@ theme_du_bois <- function() {
 # from original image, looks like each semicircle is only filled from
 # [pi/4, 3*pi/4]
 occup <- data.frame(
-  race = rep(c("black", "white"), each = 6),
-  job = rep(c("ag", "serv", "manu", "trade", "prof", "NA"), times = 2),
-  pct = c(62, 28, 5, 4.5, 0.5, 50, 64, 5.5, 13.5, 13, 4, 50)
+  race = factor(
+    rep(c("black", "white"), each = 6),
+    levels = c("black", "white")
+  ),
+  job = factor(
+    rep(c("NA", "prof", "trade", "manu", "serv", "ag"), times = 2),
+    # set factor levels in order of appearance on graph from [0, pi]
+    levels = c("NA", "prof", "trade", "manu", "serv", "ag")
+  ),
+  pct = c(50, 0.5, 4.5, 5, 28, 62,
+          50, 4, 13, 13.5, 5.5, 64)
 )
-# set factor levels in order of appearance on graph from [0, pi]
-occup$job <- factor(
-  occup$job,
-  levels = c("NA", "prof", "trade", "manu", "serv", "ag")
-)
+
 # labeling
 pct_labels <- paste0(occup$pct, "%")
-pct_labels[c(6, 12)] <- "" # no label for NA
-pct_labels[5] <- ".5%" # omit leading 0 to match the real graph
+# no label for NA
+pct_labels[which(pct_labels == "50%")] <- ""
+# omit leading 0 to match the real graph
+pct_labels[which(pct_labels == "0.5%")] <- ".5%"
 
 # plot -------
 ppmsca_08993 <- ggplot(

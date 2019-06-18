@@ -12,7 +12,7 @@
 library(dplyr)
 library(ggplot2)
 
-### intial setup: ====================================
+### initial setup: ====================================
 
 # going to use the Inconsolata font, available for download here:
 # https://fontlibrary.org/en/font/inconsolata

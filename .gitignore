@@ -2,5 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
-*.Rproj
 others.R
+hockey.R
+rink-new.R
+*.Rmd

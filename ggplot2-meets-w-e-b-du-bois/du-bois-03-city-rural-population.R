@@ -11,7 +11,7 @@
 
 library(ggplot2)
 
-### intial setup: ====================================
+### initial setup: ====================================
 
 # going to use the Inconsolata font, available for download here:
 # https://fontlibrary.org/en/font/inconsolata
@@ -41,7 +41,10 @@ theme_du_bois <- function() {
 # creating data from original graph -------
 popn <- data.frame(
   year = rep(seq(1860, 1890, by = 10), times = 2),
-  group = rep(c("city", "rural"), each = 4),
+  group = factor(
+    rep(c("city", "rural"), each = 4),
+    levels = c("city", "rural")
+  ),
   pct = c(4.2, 8.5, 8.4, 12, 95.8, 91.5, 91.6, 88)
 )
 
