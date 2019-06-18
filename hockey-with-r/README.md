@@ -84,14 +84,6 @@ short-handed, if I remember correctly).
 
 ``` r
 library(dplyr)
-# 
-# Attaching package: 'dplyr'
-# The following objects are masked from 'package:stats':
-# 
-#     filter, lag
-# The following objects are masked from 'package:base':
-# 
-#     intersect, setdiff, setequal, union
 scf2010 <- readRDS(here::here("hockey-with-r", "scf2010.rds"))
 shots <- scf2010 %>%
   # remove shots below goal line
@@ -113,7 +105,7 @@ ggplot(shots, aes(x = x2, y = y2)) +
   scale_y_continuous(breaks = seq(-40, 40, by = 10))
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+![](figures/gg-rink-shots-1.png)<!-- -->
 
 Actually, now that I’m thinking about it, I suppose there’s no reason
 you can’t just call `gg_rink()` twice to get the whole rink if you want:
