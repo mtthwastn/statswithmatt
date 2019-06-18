@@ -2,9 +2,9 @@
 # Plotting a hockey rink with R
 
 These are two scripts I wrote to plot a hockey rink in R, as detailed
-[here](https://www.statswithmatt.com/post/hockey-with-r/). Both assume
-that the corresponding data coordinates are relative to the center dot
-at (0,0).
+[here](https://www.statswithmatt.com/post/hockey-rink-in-r/). Both
+assume that the corresponding data coordinates are relative to the
+center dot at (0,0).
 
 ## base R plot
 
